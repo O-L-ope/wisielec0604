@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="csswisielec.css" type="text/css" rel="stylesheet"></link>
+    <title>Wisielec</title>
+</head>
+
+<body id="bcg">
+    <h1 id="wisi">Wisielec</h1>
+        
+    <img src="wis1.png" width= 300px; height= 300px;>
+    
+    <div id="tekst1"> </div>
+    <div id="klawa"> </div>
+    <div id="Pole_Tekstowe"> </div>
+    
+    
+    
+    
+    
+    <table id="tabelka">
+    </table>
+    <script>
+        var Punkty = 0;
+        var maska;
+        var Haslo = window.prompt("Podaj Haslo")
+        Haslo = Haslo.toUpperCase();
+        for (var i = 0; i < Haslo.length; i++) {
+        document.getElementById("Pole_Tekstowe").innerHTML += "_"
+        }
+        
+        function Literki(charA, charZ) {
+            var a = [], n = charA.charCodeAt(), x = charZ.charCodeAt();
+
+            for (; n <= x; ++n) {
+                a.push(String.fromCharCode(n));
+            }
+            return a;
+
+            maska = Array(Haslo.length);
+            maska.fill(false);
+            
+        }
+
+
+        function zgadnij(event){
+            
+            let litera = event.srcElement.innerHTML;
+            let wygrana = false;
+                for(let i = 0; i<Haslo.length; i++) {
+                    console.log(litera);
+                    console.log(Haslo[i]);
+                    if(litera[i] == Haslo[i]){
+                        maska = true;
+                        wygrana = true;
+
+                    }
+
+                        
+            }     
+        
+        
+        }
+        function Alerty(Punkty) {
+            if (Punkty > 6) {
+                window.alert("Porazka");
+            } else if (Punkty == Haslo.length) {
+                window.alert("Wygrales");
+            }
+        }
+        
+        
+        
+        
+        
+        function tabela() {
+            var tabela = document.createElement("Tabela");
+            let tablicaLiter = Literki('A', 'Z');
+            tablicaLiter.forEach((element)  => {
+                b = document.createElement("button");
+                b.innerHTML = element;
+                b.addEventListener('click', zgadnij);
+                document.getElementById("klawa").appendChild(b);
+            });
+        }
+
+
+        tabela()
+    </script>
+</body>
+
+</html>

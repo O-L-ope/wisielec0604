@@ -1,0 +1,19 @@
+h1#wisi{
+    text-align: center;
+}
+
+
+#klawa{
+    text-align: center;
+}
+p#pole{
+    text-align: right;
+    margin-right: 350px;
+}
+body#bcg{
+    background-color: gray;
+}
+#Pole_Tekstowe{
+    letter-spacing: 10px;
+    font-size: 30px;
+}
